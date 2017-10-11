@@ -1,0 +1,37 @@
+<div class="datepicker date-picker-panel">
+  <div class="date-picker-wrapper">
+    <div class="date-picker-main">
+      <div class="date-picker-header">
+        <i class="date-picker-icon date-pre-y" (click)="preYear()"><<</i>
+        <i class="date-picker-icon date-pre-m" (click)="preMonth()"><</i>
+        <div class="date-setym">
+          <span class="date-set-y">{{calendarDate.nowYear}} 年</span>
+          <span class="date-set m">{{calendarDate.nowMonth}} 月</span>
+        </div>
+        <i class="date-picker-icon date-next-m" (click)="nextMonth()">></i>
+        <i class="date-picker-icon date-next-y" (click)="nextYear()">>></i>
+      </div>
+      <div class="date-picker-content">
+        <table class="date-table">
+          <thead>
+            <tr class="date-picker-week-row">
+              <th>日</th>
+              <th>一</th>
+              <th>二</th>
+              <th>三</th>
+              <th>四</th>
+              <th>五</th>
+              <th>六</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="date-picker-table-row" *ngFor="let list of showDays; let i=index">
+              <td [ngClass]="{fade: (i === 0 && day > 7) || (i === showDays.length - 1 && day < 12) || (i === showDays.length - 2 && day < 7)}" *ngFor="let day of list;let y=index">{{day}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="date-picker-footer"></div>
+    </div>
+  </div>
+</div>
